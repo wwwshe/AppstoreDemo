@@ -95,7 +95,7 @@ class SearchViewController: UIViewController {
 
 extension SearchViewController :  UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchDisplayDelegate{
     func didDismissSearchController(_ searchController: UISearchController) {
-        self.searchController?.searchBar.showsCancelButton = false 
+        self.searchController?.searchBar.showsCancelButton = false
          self.navigationItem.searchController = self.searchController
     }
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -133,9 +133,10 @@ extension SearchViewController :  UISearchResultsUpdating, UITableViewDelegate, 
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let word = searchBar.text!
         self.db.insertKeyWordDatabase(word)
-        let controller = SearchResultViewController.storyboardInstance()
-        controller.keyword = word
-        self.navigationController?.pushViewController(controller, animated:false)
+        searchController?.searchResultsController?.dismiss(animated: false, completion: {
+            self.moveResultPage(word)
+        })
+       
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

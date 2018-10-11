@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		67363968216DE55700297C41 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67363967216DE55700297C41 /* SearchResultViewController.swift */; };
 		6736396F216F025100297C41 /* SearchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6736396E216F025100297C41 /* SearchListViewController.swift */; };
+		67363971216F2E1D00297C41 /* Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67363970216F2E1D00297C41 /* Util.swift */; };
+		67363973216F325500297C41 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67363972216F325500297C41 /* SearchData.swift */; };
 		673FB41E216DB5E9008A7AEC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FB41D216DB5E9008A7AEC /* AppDelegate.swift */; };
 		673FB420216DB5E9008A7AEC /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FB41F216DB5E9008A7AEC /* SearchViewController.swift */; };
 		673FB423216DB5E9008A7AEC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 673FB421216DB5E9008A7AEC /* Main.storyboard */; };
@@ -42,6 +44,8 @@
 		33163C5B46863E9D8D8BB1FC /* Pods-AppstoreDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppstoreDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-AppstoreDemo/Pods-AppstoreDemo.release.xcconfig"; sourceTree = "<group>"; };
 		67363967216DE55700297C41 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		6736396E216F025100297C41 /* SearchListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewController.swift; sourceTree = "<group>"; };
+		67363970216F2E1D00297C41 /* Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Util.swift; sourceTree = "<group>"; };
+		67363972216F325500297C41 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
 		673FB41A216DB5E9008A7AEC /* AppstoreDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppstoreDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		673FB41D216DB5E9008A7AEC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		673FB41F216DB5E9008A7AEC /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				673FB44C216DBAAF008A7AEC /* database */,
+				67363970216F2E1D00297C41 /* Util.swift */,
+				67363972216F325500297C41 /* SearchData.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -351,6 +357,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				673FB420216DB5E9008A7AEC /* SearchViewController.swift in Sources */,
+				67363971216F2E1D00297C41 /* Util.swift in Sources */,
+				67363973216F325500297C41 /* SearchData.swift in Sources */,
 				673FB450216DC05D008A7AEC /* Database.swift in Sources */,
 				6736396F216F025100297C41 /* SearchListViewController.swift in Sources */,
 				67363968216DE55700297C41 /* SearchResultViewController.swift in Sources */,

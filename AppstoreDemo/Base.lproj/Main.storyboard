@@ -141,11 +141,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NZ5-IO-rQv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NZ5-IO-rQv">
                                 <rect key="frame" x="16" y="20" width="343" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="400" id="dgF-qM-AH9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultTableCell" rowHeight="400" id="dgF-qM-AH9" customClass="SearchResultTableCell" customModule="AppstoreDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dgF-qM-AH9" id="Evr-Db-CH1">
@@ -190,11 +190,11 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieG-Uc-3Dk" customClass="FloatRatingView" customModule="FloatRatingView">
-                                                    <rect key="frame" x="70" y="59.5" width="50" height="16"/>
+                                                    <rect key="frame" x="70" y="59.5" width="82" height="16"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="16" id="KLt-Vu-kKr"/>
-                                                        <constraint firstAttribute="width" constant="50" id="kdY-BD-b4P"/>
+                                                        <constraint firstAttribute="width" constant="82" id="kdY-BD-b4P"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="ic_star_empty_s"/>
@@ -214,22 +214,22 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOR-Ur-mIA">
-                                                    <rect key="frame" x="128" y="67.5" width="0.0" height="0.0"/>
+                                                    <rect key="frame" x="160" y="67.5" width="0.0" height="0.0"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" white="0.70467122400000004" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rm2-iw-8Fb">
-                                                    <rect key="frame" x="0.0" y="110" width="343" height="289.5"/>
+                                                    <rect key="frame" x="0.0" y="110" width="343" height="259.5"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-Ug-ui6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="289.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EMN-Ug-ui6">
+                                                            <rect key="frame" x="0.0" y="0.0" width="107.5" height="259.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-Dj-YdZ">
-                                                            <rect key="frame" x="117.5" y="0.0" width="108" height="289.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fMT-Dj-YdZ">
+                                                            <rect key="frame" x="117.5" y="0.0" width="108" height="259.5"/>
                                                         </imageView>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oy7-qx-Tw6">
-                                                            <rect key="frame" x="235.5" y="0.0" width="107.5" height="289.5"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oy7-qx-Tw6">
+                                                            <rect key="frame" x="235.5" y="0.0" width="107.5" height="259.5"/>
                                                         </imageView>
                                                     </subviews>
                                                 </stackView>
@@ -247,7 +247,7 @@
                                                 <constraint firstItem="Rm2-iw-8Fb" firstAttribute="top" secondItem="Zp8-uk-zmM" secondAttribute="bottom" constant="30" id="SG1-tK-tY4"/>
                                                 <constraint firstAttribute="trailing" secondItem="Rm2-iw-8Fb" secondAttribute="trailing" id="XKf-m2-JFK"/>
                                                 <constraint firstItem="tad-pL-Uf8" firstAttribute="trailing" secondItem="MPH-rs-igF" secondAttribute="trailing" id="hgR-Lz-jhK"/>
-                                                <constraint firstAttribute="bottom" secondItem="Rm2-iw-8Fb" secondAttribute="bottom" id="l51-gj-1Zq"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rm2-iw-8Fb" secondAttribute="bottom" constant="30" id="l51-gj-1Zq"/>
                                                 <constraint firstAttribute="trailing" secondItem="jGU-iN-727" secondAttribute="trailing" id="qFP-yP-9U6"/>
                                                 <constraint firstItem="Rm2-iw-8Fb" firstAttribute="leading" secondItem="Evr-Db-CH1" secondAttribute="leading" id="qMK-1x-pDP"/>
                                                 <constraint firstItem="jGU-iN-727" firstAttribute="bottom" secondItem="Zp8-uk-zmM" secondAttribute="bottom" id="siA-gm-oec"/>
@@ -256,6 +256,17 @@
                                                 <constraint firstItem="MPH-rs-igF" firstAttribute="leading" secondItem="Zp8-uk-zmM" secondAttribute="trailing" constant="10" id="wGr-2R-cf9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="appIcon" destination="Zp8-uk-zmM" id="RW0-OT-63X"/>
+                                            <outlet property="appName" destination="MPH-rs-igF" id="XoK-tP-F1p"/>
+                                            <outlet property="greetingText" destination="tad-pL-Uf8" id="In9-jt-ADH"/>
+                                            <outlet property="installBtn" destination="a9X-AF-YEd" id="mp9-LB-BTw"/>
+                                            <outlet property="rating" destination="ieG-Uc-3Dk" id="kL1-oZ-h8L"/>
+                                            <outlet property="ratingText" destination="ZOR-Ur-mIA" id="jo1-kL-tgm"/>
+                                            <outlet property="screenshot1" destination="EMN-Ug-ui6" id="xDl-UB-oBC"/>
+                                            <outlet property="screenshot2" destination="fMT-Dj-YdZ" id="TBo-Za-MS5"/>
+                                            <outlet property="screenshot3" destination="oy7-qx-Tw6" id="PqZ-Au-zfG"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
