@@ -5,6 +5,7 @@
 //  Created by 서비스앱개발팀 on 2018. 10. 10..
 //  Copyright © 2018년 junjungwook. All rights reserved.
 //
+// 검색 첫 페이지
 
 import UIKit
 
@@ -39,7 +40,8 @@ class SearchViewController: UIViewController {
         searchListController?.parentView = self
         self.navigationItem.searchController = searchController
         definesPresentationContext = true
-        
+        self.navigationController?.navigationBar.barTintColor = .white
+        self.navigationController?.navigationBar.shouldRemoveShadow(true)
         
         beforeKeywords = db.selectKeyWordDatabase()
         beforeSearchWordTable.delegate = self
@@ -59,6 +61,7 @@ class SearchViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // 검색 결과 페이지로 이동
     func moveResultPage(_ word : String){
         self.searchController?.searchBar.text = ""
         db.insertKeyWordDatabase(word)
@@ -66,6 +69,14 @@ class SearchViewController: UIViewController {
         searchController?.searchBar.text = word
         searchListController?.viewResultChange(word)
     }
+    
+    // 상세 페이지로 이동
+    func moveDetailPage(_ data : SearchData){
+        let controller = AppDetailViewController.storyboardInstance()
+        controller.data = data
+        self.navigationController?.pushViewController(controller, animated: false)
+    }
+    
     // 키워드 유효성검사
     func isValidKeyword(testStr:String) -> Bool {
         let regEx = "[가-힣ㄱ-ㅎㅏ-ㅣ]"

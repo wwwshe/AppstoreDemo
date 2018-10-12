@@ -5,6 +5,7 @@
 //  Created by 서비스앱개발팀 on 2018. 10. 11..
 //  Copyright © 2018년 junjungwook. All rights reserved.
 //
+// 검색 히스토리 페이지
 
 import UIKit
 import FloatRatingView
@@ -31,6 +32,7 @@ class SearchListViewController : UIViewController{
 
     }
 
+    //히스토리 페이지에서 결과 페이지로 변경
     func viewResultChange(_ word : String){
         parentView.searchController?.searchBar.text = word
         parentView.searchController?.searchBar.endEditing(true)
@@ -44,6 +46,8 @@ class SearchListViewController : UIViewController{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
+    //apple search api
     func getSearchData(){
         let path = "https://itunes.apple.com/search?term=\(keyword)&country=KR&entity=software"
         let url = URL(string : path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? "")
@@ -124,6 +128,8 @@ extension SearchListViewController : UITableViewDelegate, UITableViewDataSource{
                 
                viewResultChange(self.historyKeywords[indexPath.row])
             }
+        }else{
+            parentView.moveDetailPage(resultDatas[indexPath.row])
         }
     }
     

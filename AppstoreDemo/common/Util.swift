@@ -44,6 +44,59 @@ class Util{
         }
         return string
     }
-    
+    static func dateStringToDate(date : String) ->Date{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let returnDate = formatter.date(from: date)
 
+        return returnDate!
+    }
+    
+    static func dateToAgoDateText(dateString : String) -> String{
+     
+        let date = dateStringToDate(date: dateString)
+        let intevar = Date().timeIntervalSince(date)
+        let days = intevar / 86400
+        let time = intevar / 3600
+        let min = intevar / 60
+        if days >= 365 {
+            
+            return String(format : "\(Int(days / 365))년 전")
+        }else if days >= 30{
+            return String("\(Int(days / 30))개월 전")
+        }else if days > 0{
+            return String("\(Int(days))일 전")
+        }else if time > 0{
+            return String("\(Int(time))시간 전")
+        }else if min > 0 {
+            return String("\(Int(min))분 전")
+        }else{
+            return String("\(intevar)초 전")
+        }
+    }
+    // 사용될 문자와 폰트, 뷰프레인을 받아 문자의 실제 사용될 frame 값을 리턴
+    //
+    static func stringRect(frame: CGRect, textStr: String, textFont: UIFont) -> CGRect {
+        let rect = NSString(string: textStr).boundingRect(with: CGSize(width: frame.width, height:10000), options: NSStringDrawingOptions.usesFontLeading.union(NSStringDrawingOptions.usesLineFragmentOrigin), attributes: [NSAttributedString.Key.font: textFont], context: nil)
+        return rect
+    }
+    // 라벨이 몇줄인지 가져오기
+    static func labelGetlines(label : UILabel,string : String) -> Int{
+        var lineCount = 0
+        let rect = stringRect(frame: CGRect(x: 0, y: 0, width: label.frame.width, height: label.frame.height), textStr: string, textFont: label.font)
+        let charSize = lroundf(Float(label.font.lineHeight))
+        
+        lineCount = Int(rect.height)/charSize
+        return lineCount
+    }
+}
+extension UINavigationBar {
+    
+    func shouldRemoveShadow(_ value: Bool) -> Void {
+        if value {
+            self.setValue(true, forKey: "hidesShadow")
+        } else {
+            self.setValue(false, forKey: "hidesShadow")
+        }
+    }
 }

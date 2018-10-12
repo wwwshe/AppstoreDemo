@@ -20,6 +20,7 @@
 		673FB433216DB5EB008A7AEC /* AppstoreDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FB432216DB5EB008A7AEC /* AppstoreDemoTests.swift */; };
 		673FB43E216DB5EB008A7AEC /* AppstoreDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FB43D216DB5EB008A7AEC /* AppstoreDemoUITests.swift */; };
 		673FB450216DC05D008A7AEC /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673FB44F216DC05D008A7AEC /* Database.swift */; };
+		675912FB2170862F0064CEA7 /* MultiImageShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675912FA2170862F0064CEA7 /* MultiImageShowViewController.swift */; };
 		D54BF12897D2C13D28C57B14 /* Pods_AppstoreDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 68E306209D5138C7C3A82746 /* Pods_AppstoreDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		673FB43D216DB5EB008A7AEC /* AppstoreDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppstoreDemoUITests.swift; sourceTree = "<group>"; };
 		673FB43F216DB5EB008A7AEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		673FB44F216DC05D008A7AEC /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		675912FA2170862F0064CEA7 /* MultiImageShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiImageShowViewController.swift; sourceTree = "<group>"; };
 		68E306209D5138C7C3A82746 /* Pods_AppstoreDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppstoreDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,6 +128,7 @@
 				6736396E216F025100297C41 /* SearchListViewController.swift */,
 				673639742170432300297C41 /* AppDetailViewController.swift */,
 				67363976217059CD00297C41 /* AppDetailScreenShotCell.swift */,
+				675912FA2170862F0064CEA7 /* MultiImageShowViewController.swift */,
 			);
 			path = AppstoreDemo;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				673639752170432300297C41 /* AppDetailViewController.swift in Sources */,
 				6736396F216F025100297C41 /* SearchListViewController.swift in Sources */,
 				673FB41E216DB5E9008A7AEC /* AppDelegate.swift in Sources */,
+				675912FB2170862F0064CEA7 /* MultiImageShowViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
