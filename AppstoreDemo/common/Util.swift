@@ -26,5 +26,24 @@ class Util{
         }
         return nil
     }
+    
+    static func changeUnitNumber(num : Int) -> String{
+        var string = ""
+        let i = num / 10000
+        if i > 0 {
+            let d = (Double(num) / 10000.0) - Double(i)
+            let result = d + Double(i)
+            string = "\(String(format: "%.1f",result))만"
+        }else if num / 1000 > 0{
+            let share = num / 1000
+            let d = (Double(num) / 1000.0) - Double(share)
+            let result = d + Double(share)
+            string = "\(String(format: "%.1f",result))천"
+        }else{
+            string = String(num)
+        }
+        return string
+    }
+    
 
 }

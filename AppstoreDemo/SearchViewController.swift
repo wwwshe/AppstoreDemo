@@ -17,15 +17,13 @@ class SearchViewController: UIViewController {
     var beforeKeywords = [String]()
     
     var searchController: UISearchController?
-    var searchResultController : UISearchController?
     var searchListController : SearchListViewController?
-    var resultController : SearchResultViewController?
-    
+
     var isSearchActive = false
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+      
         searchController = ({
             searchListController = SearchListViewController.storyboardInstance()
             let controller = UISearchController(searchResultsController: searchListController)
@@ -34,19 +32,7 @@ class SearchViewController: UIViewController {
             controller.searchBar.delegate = self
           
             controller.delegate = self
-
-            return controller
-        })()
-        searchResultController = ({
-            resultController = SearchResultViewController.storyboardInstance()
-        
-            let controller = UISearchController(searchResultsController: resultController)
-            controller.searchBar.placeholder = "App Store"
-            controller.searchResultsUpdater = self
-            controller.searchBar.delegate = self
-            
-            controller.delegate = self
-            
+            controller.searchBar.setValue("취소", forKey: "cancelButtonText")
             return controller
         })()
         
@@ -76,12 +62,9 @@ class SearchViewController: UIViewController {
     func moveResultPage(_ word : String){
         self.searchController?.searchBar.text = ""
         db.insertKeyWordDatabase(word)
-        resultController?.keyword = word
-       
-        self.navigationItem.searchController = searchResultController
-        searchResultController?.searchBar.becomeFirstResponder()
-        searchResultController?.searchBar.text = word
-      
+        searchController?.isActive = true 
+        searchController?.searchBar.text = word
+        searchListController?.viewResultChange(word)
     }
     // 키워드 유효성검사
     func isValidKeyword(testStr:String) -> Bool {
@@ -96,10 +79,11 @@ class SearchViewController: UIViewController {
 extension SearchViewController :  UISearchResultsUpdating, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchControllerDelegate, UISearchDisplayDelegate{
     func didDismissSearchController(_ searchController: UISearchController) {
         self.searchController?.searchBar.showsCancelButton = false
-         self.navigationItem.searchController = self.searchController
+        self.searchListController?.isResult = false
+        self.searchListController?.resultDatas.removeAll()
     }
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        if text.isEmpty {
+        if text.isEmpty || text == "\n" || text == " "{
             return true
         }
         if isValidKeyword(testStr: text){
@@ -111,6 +95,7 @@ extension SearchViewController :  UISearchResultsUpdating, UITableViewDelegate, 
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+      
         isSearchActive = true
         beforeSearchWordTable.reloadData()
     }
@@ -124,19 +109,21 @@ extension SearchViewController :  UISearchResultsUpdating, UITableViewDelegate, 
         let word = searchController.searchBar.text!
         if word != ""{
             searchListController?.historyKeywords = db.selectKeyWordContainDatabase(word)
-            searchListController?.searchHistoryTable.reloadData()
+            searchListController?.searchTable.reloadData()
         }
     }
+    
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.showsCancelButton = false
+        self.searchListController?.isResult = false
+        self.searchListController?.resultDatas.removeAll()
     }
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let word = searchBar.text!
         self.db.insertKeyWordDatabase(word)
-        searchController?.searchResultsController?.dismiss(animated: false, completion: {
-            self.moveResultPage(word)
-        })
-       
+        searchListController?.viewResultChange(word)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
