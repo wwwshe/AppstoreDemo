@@ -49,7 +49,7 @@ class SearchListViewController : UIViewController{
     
     //apple search api
     func getSearchData(){
-        let path = "https://itunes.apple.com/search?term=\(keyword)&country=KR&entity=software"
+        let path = "https://itunes.apple.com/search?term=\(keyword)&country=KR&media=software"
         let url = URL(string : path.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) ?? "")
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
