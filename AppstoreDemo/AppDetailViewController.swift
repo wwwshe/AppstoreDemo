@@ -171,7 +171,8 @@ extension AppDetailViewController : UITableViewDelegate, UITableViewDataSource{
         case 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AppDetailRatingCell") as! AppDetailRatingCell
             cell.rating.rating = data.averageUserRating
-            cell.ratingText.text = Util.changeUnitNumber(num: data.userRatingCount) + "개의 평가"
+            cell.ratingText.text = String(data.averageUserRating)
+            cell.ratingCountText.text = Util.changeUnitNumber(num: data.userRatingCount) + "개의 평가"
             cell.ageText.text = data.trackContentRating
             cell.categoryText.text = data.genres[0]
             
