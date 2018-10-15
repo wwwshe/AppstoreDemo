@@ -48,12 +48,12 @@ class Util{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
         let returnDate = formatter.date(from: date)
-
+        
         return returnDate!
     }
     
     static func dateToAgoDateText(dateString : String) -> String{
-     
+        
         let date = dateStringToDate(date: dateString)
         let intevar = Date().timeIntervalSince(date)
         let days = intevar / 86400
@@ -89,6 +89,38 @@ class Util{
         lineCount = Int(rect.height)/charSize
         return lineCount
     }
+    
+    static func languageCodesToKor(code : String) -> String{
+        switch code {
+        case "KO":
+            return "한국어"
+        case "EN":
+            return "영어"
+        case "FR":
+            return "프랑스어"
+        case "DE":
+            return "독일어"
+        case "ID":
+            return "인도네시아어"
+        case "IT":
+            return "이탈리아어"
+        case "JA":
+            return "자메이카어"
+        case "PT":
+            return "포르투갈어"
+        case "RU":
+            return "러시아어"
+        case "ES":
+            return "스페인어"
+        case "TH":
+            return "태국어"
+        case "TR":
+            return "터키어"
+        default:
+            return "기타"
+        }
+    }
+    
 }
 extension UINavigationBar {
     

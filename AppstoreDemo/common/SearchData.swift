@@ -56,5 +56,5 @@ class SearchData : NSObject{
     var currentVersionReleaseDate = "" //현재버전 업로드 날짜
     var averageUserRating = 0.0 //평점
     var userRatingCount = 0 //유저 평가갯수
-
+    var languageCodesISO2A = [String]()    // 언어 코드
 }
