@@ -46,8 +46,7 @@ extension MultiImageShowViewController :  UICollectionViewDelegate,UICollectionV
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScreenshotCell", for: indexPath) as! ScreenshotCell
-        cell.imageView.kf.setImage(with: URL(string : screenshots[indexPath.row]))
-     
+        cell.imageView.imageGet(imageUrl: screenshots[indexPath.row])
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

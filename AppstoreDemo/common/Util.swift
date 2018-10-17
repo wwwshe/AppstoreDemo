@@ -9,6 +9,9 @@
 import UIKit
 
 class Util{
+    
+    private static let preferences = UserDefaults.standard
+    
     static func alertMsg(viewController : UIViewController, msg : String, handler : ((UIAlertAction) -> Swift.Void)? = nil){
         let alertController = UIAlertController(title: "알림", message:
             msg, preferredStyle: UIAlertController.Style.alert)
@@ -121,7 +124,45 @@ class Util{
         }
     }
     
+    static func setPreferDataValue(key : String , value : Data){
+        preferences.set(value, forKey: key)
+    }
+    static func getPreferDataValue(key : String) -> Data?{
+        if preferences.object(forKey: key) != nil{
+            return preferences.data(forKey: key)
+        }else{
+            return nil
+        }
+    }
+ 
+    
 }
+
+extension UIImageView {
+    func imageGet(imageUrl : String){
+        self.image = nil
+        var imageData = Util.getPreferDataValue(key: imageUrl)
+        if imageData == nil {
+            let url = URL(string: imageUrl)
+            DispatchQueue.global().async {
+                imageData = try? Data(contentsOf: url!)
+                if imageData != nil {
+                    Util.setPreferDataValue(key: imageUrl, value: imageData!)
+                    DispatchQueue.main.async {
+                        self.image = UIImage(data: imageData!)
+                    }
+                }else{
+                    self.image = nil
+                }
+            }
+        }else{
+            DispatchQueue.main.async {
+                self.image = UIImage(data: imageData!)
+            }
+        }
+    }
+}
+
 extension UINavigationBar {
     
     func shouldRemoveShadow(_ value: Bool) -> Void {

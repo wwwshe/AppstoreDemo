@@ -1,26 +1,22 @@
 PODS:
   - FloatRatingView (3.0)
-  - Kingfisher (4.8.1)
   - SQLite.swift (0.11.5):
     - SQLite.swift/standard (= 0.11.5)
   - SQLite.swift/standard (0.11.5)
 
 DEPENDENCIES:
   - FloatRatingView
-  - Kingfisher
   - SQLite.swift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FloatRatingView
-    - Kingfisher
     - SQLite.swift
 
 SPEC CHECKSUMS:
   FloatRatingView: 0f7b45733124516ac6b8f535e5b5f4fa2e122180
-  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
 
-PODFILE CHECKSUM: 18f99316d160c261755e47d1e7035616b15c63ea
+PODFILE CHECKSUM: 8e0ad56f3d35911a66457858e280d225b264c38a
 
 COCOAPODS: 1.5.3

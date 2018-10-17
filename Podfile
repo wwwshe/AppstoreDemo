@@ -4,7 +4,6 @@ use_frameworks!
 inhibit_all_warnings!
 
 target 'AppstoreDemo' do
-   pod 'Kingfisher'
    pod 'SQLite.swift'
    pod 'FloatRatingView'
 end

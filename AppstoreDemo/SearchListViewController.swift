@@ -9,7 +9,7 @@
 
 import UIKit
 import FloatRatingView
-import Kingfisher
+
 
 class SearchListViewController : UIViewController{
     static func storyboardInstance() -> SearchListViewController{
@@ -108,15 +108,16 @@ extension SearchListViewController : UITableViewDelegate, UITableViewDataSource{
             let cell = tableView.dequeueReusableCell(withIdentifier: "SearchResultTableCell") as! SearchResultTableCell
             if resultDatas.count > 0 {
                 let data = resultDatas[indexPath.row]
-                cell.appIcon.kf.setImage(with: URL(string : data.artworkUrl60))
+                cell.appIcon.imageGet(imageUrl: data.artworkUrl60)
+              
                 cell.appName.text = data.trackName
                 cell.genreText.text = data.genres[0]
                 cell.rating.rating = data.averageUserRating
                 cell.ratingText.text = Util.changeUnitNumber(num: data.userRatingCount)
             
-                cell.screenshot1.kf.setImage(with: URL(string : data.screenshotUrls[0]))
-                cell.screenshot2.kf.setImage(with: URL(string : data.screenshotUrls[1]))
-                cell.screenshot3.kf.setImage(with: URL(string : data.screenshotUrls[2]))
+                cell.screenshot1.imageGet(imageUrl: data.screenshotUrls[0])
+                cell.screenshot2.imageGet(imageUrl: data.screenshotUrls[1])
+                cell.screenshot3.imageGet(imageUrl: data.screenshotUrls[2])
             }
             return cell
         }
@@ -160,6 +161,7 @@ class SearchResultTableCell : UITableViewCell{
     @IBOutlet weak var screenshot1: UIImageView!
     @IBOutlet weak var screenshot2: UIImageView!
     @IBOutlet weak var screenshot3: UIImageView!
+   
     
     override func awakeFromNib() {
         self.installBtn.layer.masksToBounds = false

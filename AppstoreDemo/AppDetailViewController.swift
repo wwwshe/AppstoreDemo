@@ -37,7 +37,7 @@ class AppDetailViewController : UIViewController{
         let height = 44
         let view = UIView(frame: CGRect(x: 0, y: 0, width: height, height: height))
         titleView = UIImageView(frame : CGRect(x: (height - 24) / 2, y: (height - 24) / 2, width: 24, height: 24))
-        titleView.kf.setImage(with: URL(string : data.artworkUrl60))
+        titleView.imageGet(imageUrl: data.artworkUrl60)
         titleView.layer.masksToBounds = false
         titleView.layer.cornerRadius =  10
         titleView.clipsToBounds = true
@@ -163,7 +163,7 @@ extension AppDetailViewController : UITableViewDelegate, UITableViewDataSource{
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AppDetailTopCell") as! AppDetailTopCell
-            cell.appIcon.kf.setImage(with: URL(string : data.artworkUrl100))
+            cell.appIcon.imageGet(imageUrl: data.artworkUrl100)
             cell.appName.text = data.trackName
             cell.subName.text = data.genres.joined(separator: ",")
             cell.moreBtn.addTarget(self, action: #selector(appMoreBtnFunc), for: .touchUpInside)
